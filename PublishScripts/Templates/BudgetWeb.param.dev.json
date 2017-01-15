@@ -1,0 +1,32 @@
+{
+  "siteName": {
+    "value": "NoBudget"
+  },
+  "hostingPlanName": {
+    "value": "BudgetAppServicePlan"
+  },
+  "siteLocation": {
+    "value": "South Central US"
+  },
+  "sku": {
+    "value": "Free"
+  },
+  "workerSize": {
+    "value": "0"
+  },
+  "serverName": {
+    "value": "budgetserver"
+  },
+  "serverLocation": {
+    "value": "East US"
+  },
+  "administratorLogin": {
+    "value": "BudgetTom"
+  },
+  "administratorLoginPassword": {
+    "value": "microsoft20350!"
+  },
+  "databaseName": {
+    "value": "NoBudget_db"
+  }
+}
