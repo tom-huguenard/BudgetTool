@@ -1,12 +1,12 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
+using BaseClasses.Interfaces.POCO;
+using BaseClasses.POCOs;
 
-namespace BudgetTool.Pocos
+namespace BudgetTool.Data.Pocos
 {
-    public class Account
+    public class Account : IAccount
     {
         [Index("IX_AccountName", 1, IsUnique = true)]
         public int PortfolioId { get; set; }
@@ -29,7 +29,7 @@ namespace BudgetTool.Pocos
         public decimal MonthlyNonPrinciple { get; set; }
         public decimal CollateralValue { get; set; }
         public bool IsActive { get; set; }
-        public virtual Portfolio Portfolio { get; set; }
+        public virtual IPortfolio Portfolio { get; set; }
 
     }
 }

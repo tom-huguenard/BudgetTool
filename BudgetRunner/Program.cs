@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BudgetTool.Data;
-using BudgetTool.Pocos;
+using BudgetTool.Data.Pocos;
 
 namespace BudgetRunner
 {

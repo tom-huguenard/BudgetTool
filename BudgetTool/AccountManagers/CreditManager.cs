@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
-using BudgetTool.Pocos;
-using static BudgetTool.Pocos.TransactionType;
+using BaseClasses.POCOs;
+using static BaseClasses.POCOs.TransactionType;
 
 namespace BudgetTool.AccountManagers
 {

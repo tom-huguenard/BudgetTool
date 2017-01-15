@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.SqlServer;
-using BudgetTool.Pocos;
+using BudgetTool.Data.Pocos;
 
 namespace BudgetTool.Data
 {

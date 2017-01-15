@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BudgetTool.Pocos;
+using BaseClasses.Interfaces;
+using BaseClasses.Interfaces.POCO;
+using BudgetTool.Data.Pocos;
 
 namespace BudgetTool.AccountManagers
 {
     public class CompletedTransactionManager
     {
 
-        public static IEnumerable<VirtualTransaction> GetTransactions(PortfolioManager mgr, int acctId, DateTime date, bool isCredit, Func<CompletedTransaction, int?> thisAccount, Func<CompletedTransaction, int?> otherAccount)
+        public static IEnumerable<VirtualTransaction> GetTransactions(IPortfolioManager mgr, int acctId, DateTime date, bool isCredit, Func<ICompletedTransaction, int?> thisAccount, Func<ICompletedTransaction, int?> otherAccount)
         {
             return mgr
                 .CompletedTransactions

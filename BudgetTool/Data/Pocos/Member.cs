@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BaseClasses.Interfaces.POCO;
 
-namespace BudgetTool.Pocos
+namespace BudgetTool.Data.Pocos
 {
-    public class Member
+    public class Member : IMember
     {
         [Key]
         public int MemberId { get; set; }
@@ -18,7 +14,7 @@ namespace BudgetTool.Pocos
         public int UserId { get; set; }
         public bool CanWrite { get; set; }
         public bool IsOwner { get; set; }
-        public virtual MasterAccount MasterAccount { get; set; }
-        public virtual UserAccount UserAccount { get; set; }
+        public virtual IMasterAccount MasterAccount { get; set; }
+        public virtual IUserAccount UserAccount { get; set; }
     }
 }

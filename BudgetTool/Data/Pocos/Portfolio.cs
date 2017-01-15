@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
+using BaseClasses.Interfaces.POCO;
 
-namespace BudgetTool.Pocos
+namespace BudgetTool.Data.Pocos
 {
-    public class Portfolio
+    public class Portfolio : IPortfolio
     {
         [Key]
         public int PortfolioId { get; set; }
@@ -20,6 +15,6 @@ namespace BudgetTool.Pocos
         [Index("IX_PortfolioPerMasterAccount", 2, IsUnique = true)]
         [MaxLength(100)]
         public string PortfolioName { get; set; }
-        public virtual MasterAccount MasterAccount { get; set; }
+        public virtual IMasterAccount MasterAccount { get; set; }
     }
 }

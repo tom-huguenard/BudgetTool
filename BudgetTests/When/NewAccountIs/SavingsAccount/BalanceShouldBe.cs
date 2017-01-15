@@ -1,9 +1,8 @@
 ﻿using System;
-using BudgetTool;
-using BudgetTool.Pocos;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using static BudgetTool.Pocos.AccountType;
-using static BudgetTool.Pocos.TransactionType;
+using static BaseClasses.POCOs.TransactionType;
+using static BaseClasses.POCOs.AccountType;
+
 namespace BudgetTests.When.NewAccountIs.SavingsAccount
 {
     [TestClass]
@@ -36,7 +35,7 @@ namespace BudgetTests.When.NewAccountIs.SavingsAccount
         public void TenAfterTenDollarDeposit()
         {
             PortfolioManager.CreateAccount(Savings, UsefulStartDate);
-            AddCompletedTransaction(10, TransactionType.ManualDeposit, 1);
+            AddCompletedTransaction(10, ManualDeposit, 1);
             Assert.AreEqual(10, PortfolioManager.GetAccountBalanceByDate(1, DateTime.Today));
         }
 
@@ -47,9 +46,9 @@ namespace BudgetTests.When.NewAccountIs.SavingsAccount
             PortfolioManager.CreateAccount(DirectDepositor);
             PortfolioManager.CreateAccount();
 
-            AddCompletedTransaction(2, TransactionType.OutgoingCheck, 1, 1, 3);
-            AddScheduledMonthlyMutualTransaction(2, 1, 10, TransactionType.DirectDeposit);
-            AddScheduledMonthlyMutualTransaction(1, 3, 1, TransactionType.DirectDeposit);
+            AddCompletedTransaction(2, OutgoingCheck, 1, 1, 3);
+            AddScheduledMonthlyMutualTransaction(2, 1, 10, DirectDeposit);
+            AddScheduledMonthlyMutualTransaction(1, 3, 1,  DirectDeposit);
 
             Assert.AreEqual(43, PortfolioManager.GetAccountBalanceByDate(1, DateTime.Today.AddMonths(5)));
         }

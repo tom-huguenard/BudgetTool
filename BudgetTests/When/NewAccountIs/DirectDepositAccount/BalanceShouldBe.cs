@@ -1,5 +1,4 @@
 ﻿using System;
-using BudgetTool.Pocos;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BudgetTests.When.NewAccountIs.DirectDepositAccount

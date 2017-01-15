@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BudgetTool.Pocos
+namespace BudgetTool.Data.Pocos
 {
     public class VirtualTransaction
     {
