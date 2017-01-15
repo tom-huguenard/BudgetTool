@@ -1,29 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using BaseClasses.Interfaces;
+using BaseClasses.Interfaces.POCO;
+using BaseClasses.POCOs;
 using BudgetTool.AccountManagers;
-using BudgetTool.Pocos;
-using static BudgetTool.Pocos.AccountType;
+using BudgetTool.Data.Pocos;
+using static BaseClasses.POCOs.TransactionType;
+using static BaseClasses.POCOs.AccountType;
+
 
 namespace BudgetTool
 {
-    public class PortfolioManager
+    public class PortfolioManager : IPortfolioManager
     {
         private Portfolio MyPortfolio { get; set; }
-        private  Dictionary<AccountType, Func<Account, AccountManagerBase>>  Managers { get; }
-        public  List<Account> Accounts { get; set; }
-        public  List<ScheduledTransaction> ScheduledTransactions { get; set; }
-        public  List<CompletedTransaction> CompletedTransactions { get; set; }
-        public AccountManagerFactory AccountManagerFactory { get; set; }
+        private  Dictionary<AccountType, Func<IAccount, IAccountManagerBase>>  Managers { get; }
+        public  List<IAccount> Accounts { get; set; }
+        public  List<IScheduledTransaction> ScheduledTransactions { get; set; }
+        public  List<ICompletedTransaction> CompletedTransactions { get; set; }
+        public IAccountManagerFactory AccountManagerFactory { get; set; }
 
         public PortfolioManager(Portfolio portfolio)
         {
             MyPortfolio = portfolio;
-            Accounts = new List<Account>();
-            ScheduledTransactions = new List<ScheduledTransaction>();
-            CompletedTransactions = new List<CompletedTransaction>();
+            Accounts = new List<IAccount>();
+            ScheduledTransactions = new List<IScheduledTransaction>();
+            CompletedTransactions = new List<ICompletedTransaction>();
             AccountManagerFactory = new AccountManagerFactory(this);
-            Managers = new Dictionary<AccountType, Func<Account,  AccountManagerBase>>
+            Managers = new Dictionary<AccountType, Func<IAccount,  IAccountManagerBase>>
             {
                 [Bill] = AccountManagerFactory.GetAccountManager<BillManager>,
                 [Credit] = AccountManagerFactory.GetAccountManager<CreditManager>,
@@ -54,7 +59,7 @@ namespace BudgetTool
             return acct.AccountId;
         }
 
-        public  Account GetAccountById(int accountId)
+        public  IAccount GetAccountById(int accountId)
         {
             var acct = Accounts.FirstOrDefault(x => x.AccountId == accountId);
             if (acct == null) throw new Exception("Account not found");

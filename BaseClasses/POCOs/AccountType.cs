@@ -1,4 +1,4 @@
-﻿namespace BudgetTool.Pocos
+﻿namespace BaseClasses.POCOs
 {
     public enum AccountType
     {

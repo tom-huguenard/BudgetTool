@@ -1,9 +1,8 @@
 ﻿using System;
-using BudgetTool;
-using BudgetTool.Pocos;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using static BudgetTool.Pocos.AccountType;
-using static BudgetTool.Pocos.TransactionType;
+using static BaseClasses.POCOs.TransactionType;
+using static BaseClasses.POCOs.AccountType;
 
 namespace BudgetTests.When.NewAccountIs.SavingsAccount
 {

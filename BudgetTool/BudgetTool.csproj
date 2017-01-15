@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BudgetTool</RootNamespace>
     <AssemblyName>BudgetTool</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,28 +54,32 @@
     <Compile Include="AccountManagers\CompletedTransactionManager.cs" />
     <Compile Include="AccountManagers\ScheduledTransactionManager.cs" />
     <Compile Include="Data\BudgetContext7.cs" />
-    <Compile Include="Pocos\Account.cs" />
+    <Compile Include="Data\Pocos\Account.cs" />
     <Compile Include="AccountManagers\AccountManagerBase.cs" />
-    <Compile Include="Pocos\AccountType.cs" />
     <Compile Include="AccountManagers\BillManager.cs" />
     <Compile Include="PortfolioManager.cs" />
     <Compile Include="AccountManagers\CheckingManager.cs" />
     <Compile Include="AccountManagers\CreditManager.cs" />
     <Compile Include="AccountManagers\DirectDepositorManager.cs" />
-    <Compile Include="Pocos\MasterAccount.cs" />
-    <Compile Include="Pocos\Member.cs" />
-    <Compile Include="Pocos\Portfolio.cs" />
-    <Compile Include="Pocos\UserAccount.cs" />
-    <Compile Include="Pocos\VirtualTransaction.cs" />
+    <Compile Include="Data\Pocos\MasterAccount.cs" />
+    <Compile Include="Data\Pocos\Member.cs" />
+    <Compile Include="Data\Pocos\Portfolio.cs" />
+    <Compile Include="Data\Pocos\UserAccount.cs" />
+    <Compile Include="Data\Pocos\VirtualTransaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AccountManagers\SavingsManager.cs" />
-    <Compile Include="Pocos\ScheduledTransaction.cs" />
-    <Compile Include="Pocos\CompletedTransaction.cs" />
-    <Compile Include="Pocos\TransactionType.cs" />
+    <Compile Include="Data\Pocos\ScheduledTransaction.cs" />
+    <Compile Include="Data\Pocos\CompletedTransaction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseClasses\BaseClasses.csproj">
+      <Project>{0c5b3b67-1f0a-4018-af58-f24fc14e17b1}</Project>
+      <Name>BaseClasses</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BaseClasses.Interfaces.POCO;
 
-namespace BudgetTool.Pocos
+namespace BudgetTool.Data.Pocos
 {
-    public class UserAccount
+    public class UserAccount : IUserAccount
     {
         [Key]
         public int UserId { get; set; }

@@ -4,18 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{DB2C8170-8423-415B-960D-6408DF3516F9}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{0C5B3B67-1F0A-4018-AF58-F24FC14E17B1}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BudgetRunner</RootNamespace>
-    <AssemblyName>BudgetRunner</AssemblyName>
+    <RootNamespace>BaseClasses</RootNamespace>
+    <AssemblyName>BaseClasses</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -25,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -34,16 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -53,23 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Interfaces\IAccountManagerBase.cs" />
+    <Compile Include="Interfaces\IAccountManagerFactory.cs" />
+    <Compile Include="Interfaces\IPortfolioManager.cs" />
+    <Compile Include="Interfaces\POCO\IAccount.cs" />
+    <Compile Include="Interfaces\POCO\ICompletedTransaction.cs" />
+    <Compile Include="Interfaces\POCO\IMasterAccount.cs" />
+    <Compile Include="Interfaces\POCO\IMember.cs" />
+    <Compile Include="Interfaces\POCO\IPortfolio.cs" />
+    <Compile Include="Interfaces\POCO\IScheduledTransaction.cs" />
+    <Compile Include="Interfaces\POCO\IUserAccount.cs" />
+    <Compile Include="POCOs\AccountType.cs" />
+    <Compile Include="POCOs\TransactionType.cs" />
+    <Compile Include="POCOs\VirtualTransaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BaseClasses\BaseClasses.csproj">
-      <Project>{0c5b3b67-1f0a-4018-af58-f24fc14e17b1}</Project>
-      <Name>BaseClasses</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BudgetTool\BudgetTool.csproj">
-      <Project>{D31F47D1-934E-4186-8948-9408B95749E4}</Project>
-      <Name>BudgetTool</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

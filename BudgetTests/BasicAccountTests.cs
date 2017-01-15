@@ -1,8 +1,6 @@
-﻿using System;
-using BudgetTool;
-using BudgetTool.Pocos;
+﻿using BaseClasses.POCOs;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using static BudgetTool.Pocos.AccountType;
+using static BaseClasses.POCOs.AccountType;
 
 namespace BudgetTests
 {

@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BudgetTool.Pocos;
+using BaseClasses.Interfaces;
+using BaseClasses.Interfaces.POCO;
+using BaseClasses.POCOs;
+using BudgetTool.Data.Pocos;
+using VirtualTransaction = BudgetTool.Data.Pocos.VirtualTransaction;
 
 namespace BudgetTool.AccountManagers
 {
-    public class AccountManagerBase
+    public class AccountManagerBase : IAccountManagerBase
     {
         private readonly ScheduledTransactionManager _scheduledTransactionManager = new ScheduledTransactionManager();
-        public Account CurrentAccount { get; set; }
-        public PortfolioManager pm { get; set; }
+        public IAccount CurrentAccount { get; set; }
+        public IPortfolioManager pm { get; set; }
 
 
         protected List<VirtualTransaction> GetTransactionsByDate(DateTime date)

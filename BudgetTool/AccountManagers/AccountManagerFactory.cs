@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BudgetTool.Pocos;
+using BaseClasses.Interfaces;
+using BaseClasses.Interfaces.POCO;
+using BudgetTool.Data.Pocos;
 
 namespace BudgetTool.AccountManagers
 {
-    public class AccountManagerFactory
+    public class AccountManagerFactory : IAccountManagerFactory
     {
-        public PortfolioManager PortfolioManager { get; set; }
+        public IPortfolioManager PortfolioManager { get; set; }
 
-        public AccountManagerFactory(PortfolioManager pm)
+        public AccountManagerFactory(IPortfolioManager pm)
         {
             PortfolioManager = pm;
         }
-        public  AccountManagerBase GetAccountManager<T>(Account acct) where T:AccountManagerBase, new()
-        {
-            return new T {CurrentAccount = acct, pm = PortfolioManager};
-        }
 
+        public IAccountManagerBase GetAccountManager<T>(IAccount acct) where T : IAccountManagerBase, new()
+        {
+            return new T { CurrentAccount = acct, pm = PortfolioManager };
+        }
     }
 }

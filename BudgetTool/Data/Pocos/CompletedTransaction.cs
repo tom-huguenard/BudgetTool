@@ -1,10 +1,11 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using BaseClasses.Interfaces.POCO;
 
-namespace BudgetTool.Pocos
+namespace BudgetTool.Data.Pocos
 {
-    public class CompletedTransaction
+    public class CompletedTransaction : ICompletedTransaction
 
     { 
         public int PortfolioId { get; set; }
@@ -19,11 +20,11 @@ namespace BudgetTool.Pocos
         [MaxLength(100)]
         public string Comment { get; set; }
         public bool IsPending { get; set; }
-        public virtual Portfolio Portfolio { get; set; }
+        public virtual IPortfolio Portfolio { get; set; }
         [ForeignKey("SourceAccountId")]
-        public virtual Account SourceAccount { get; set; }
+        public virtual IAccount SourceAccount { get; set; }
         [ForeignKey("DestinationAccountId")]
-        public virtual Account DestinationAccount { get; set; }
-        public virtual ScheduledTransaction ScheduledTransaction { get; set; }
+        public virtual IAccount DestinationAccount { get; set; }
+        public virtual IScheduledTransaction ScheduledTransaction { get; set; }
     }
 }

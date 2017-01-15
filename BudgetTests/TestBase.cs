@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BaseClasses.Interfaces.POCO;
+using BaseClasses.POCOs;
 using BudgetTool;
-using BudgetTool.Pocos;
+using BudgetTool.Data.Pocos;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 
 namespace BudgetTests
 {
@@ -28,9 +31,9 @@ namespace BudgetTests
                 PortfolioId = 1,
                 PortfolioName = "Test"
             });
-            PortfolioManager.Accounts = new List<Account>();
-            PortfolioManager.ScheduledTransactions = new List<ScheduledTransaction>();
-            PortfolioManager.CompletedTransactions = new List<CompletedTransaction>();
+            PortfolioManager.Accounts = new List<IAccount>();
+            PortfolioManager.ScheduledTransactions = new List<IScheduledTransaction>();
+            PortfolioManager.CompletedTransactions = new List<ICompletedTransaction>();
         }
 
         protected  void AddScheduledTransaction(decimal amount, TransactionType tt, int? daysPerCycle = null, int? monthsPerCycle = 1, DateTime? endDate = null)

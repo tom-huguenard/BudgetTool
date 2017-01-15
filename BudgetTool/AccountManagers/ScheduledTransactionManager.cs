@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using BudgetTool.Pocos;
+using BaseClasses.Interfaces;
+using BaseClasses.Interfaces.POCO;
+using BudgetTool.Data.Pocos;
 
 namespace BudgetTool.AccountManagers
 {
@@ -9,7 +11,7 @@ namespace BudgetTool.AccountManagers
     {
         private static Func<DateTime, DateTime> NextDate { get; set; }
 
-        private static IEnumerable<VirtualTransaction> ExpandScheduledItem(PortfolioManager pm, ScheduledTransaction scheduledTransaction, DateTime targetDate, bool isCredit, int? otherAccountId)
+        private static IEnumerable<VirtualTransaction> ExpandScheduledItem(IPortfolioManager pm, IScheduledTransaction scheduledTransaction, DateTime targetDate, bool isCredit, int? otherAccountId)
         {
             var rtn = new List<VirtualTransaction>();
 
@@ -36,7 +38,7 @@ namespace BudgetTool.AccountManagers
             return rtn;
 
         }
-        public static IEnumerable<VirtualTransaction> GetTransactions(PortfolioManager pm, int accountId, DateTime date, bool isCredit, Func<ScheduledTransaction, int?> thisAccount, Func<ScheduledTransaction, int?> otherAccount)
+        public static IEnumerable<VirtualTransaction> GetTransactions(IPortfolioManager pm, int accountId, DateTime date, bool isCredit, Func<IScheduledTransaction, int?> thisAccount, Func<IScheduledTransaction, int?> otherAccount)
         {
             var rtn = new List<VirtualTransaction>();
 
@@ -48,7 +50,7 @@ namespace BudgetTool.AccountManagers
             return rtn;
         }
 
-        public static void RealizeScheduledTransactions(PortfolioManager pm, ScheduledTransaction scheduledTransaction)
+        public static void RealizeScheduledTransactions(PortfolioManager pm, IScheduledTransaction scheduledTransaction)
         { 
             if (!scheduledTransaction.IsActive) return;
             var already = pm.CompletedTransactions.Where(x => x.ScheduledTransactionId == scheduledTransaction.ScheduledTransactionId).ToList();
@@ -79,7 +81,7 @@ namespace BudgetTool.AccountManagers
 
         }
 
-        private static void AssignNextDateDelegate(ScheduledTransaction scheduledTransaction)
+        private static void AssignNextDateDelegate(IScheduledTransaction scheduledTransaction)
         {
             NextDate = null;
             if (scheduledTransaction.DaysPerCycle.HasValue)

@@ -1,5 +1,6 @@
 ﻿using System;
-using BudgetTool.Pocos;
+using BaseClasses.POCOs;
+using BudgetTool.Data.Pocos;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace BudgetTests.When.NewAccountIs.BillAccount
